@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hesabot.Storage", "src\Hesa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hesabot.Core.Models", "src\Hesabot.Core.Models\Hesabot.Core.Models.csproj", "{18E99E37-7D8A-4F3B-9739-2061594A66FC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hesabot.Services", "src\Hesabot.Services\Hesabot.Services.csproj", "{4254491C-D3AA-4E94-93DE-D7189DEBCF1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hesabot.Telegram", "src\Hesabot.Telegram\Hesabot.Telegram.csproj", "{CF98BA0C-E77F-45AC-AC86-77AFBC79BE8D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +27,14 @@ Global
 		{18E99E37-7D8A-4F3B-9739-2061594A66FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18E99E37-7D8A-4F3B-9739-2061594A66FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18E99E37-7D8A-4F3B-9739-2061594A66FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4254491C-D3AA-4E94-93DE-D7189DEBCF1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4254491C-D3AA-4E94-93DE-D7189DEBCF1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4254491C-D3AA-4E94-93DE-D7189DEBCF1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4254491C-D3AA-4E94-93DE-D7189DEBCF1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF98BA0C-E77F-45AC-AC86-77AFBC79BE8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF98BA0C-E77F-45AC-AC86-77AFBC79BE8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF98BA0C-E77F-45AC-AC86-77AFBC79BE8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF98BA0C-E77F-45AC-AC86-77AFBC79BE8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,6 +42,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{A7925B31-A173-4721-9840-A8711543A897} = {E04B4D5D-C6B2-460F-BBEE-A57F0E36F933}
 		{18E99E37-7D8A-4F3B-9739-2061594A66FC} = {E04B4D5D-C6B2-460F-BBEE-A57F0E36F933}
+		{4254491C-D3AA-4E94-93DE-D7189DEBCF1B} = {E04B4D5D-C6B2-460F-BBEE-A57F0E36F933}
+		{CF98BA0C-E77F-45AC-AC86-77AFBC79BE8D} = {E04B4D5D-C6B2-460F-BBEE-A57F0E36F933}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FD858111-4E6A-4714-A629-10EE4E9B94D5}
