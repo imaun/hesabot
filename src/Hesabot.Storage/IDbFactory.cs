@@ -16,7 +16,5 @@ namespace Hesabot.Storage {
         public DbFactory(IDbConnection connection)
             => _connection = connection;
 
-        public IDatabase GetConnection()
-            => new Database(_connection.);
     }
 }

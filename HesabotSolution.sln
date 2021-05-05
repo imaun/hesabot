@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E04B4D5D-C6B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hesabot.Storage", "src\Hesabot.Storage\Hesabot.Storage.csproj", "{A7925B31-A173-4721-9840-A8711543A897}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hesabot.Core.Models", "src\Hesabot.Core.Models\Hesabot.Core.Models.csproj", "{18E99E37-7D8A-4F3B-9739-2061594A66FC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +19,17 @@ Global
 		{A7925B31-A173-4721-9840-A8711543A897}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7925B31-A173-4721-9840-A8711543A897}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7925B31-A173-4721-9840-A8711543A897}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18E99E37-7D8A-4F3B-9739-2061594A66FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18E99E37-7D8A-4F3B-9739-2061594A66FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18E99E37-7D8A-4F3B-9739-2061594A66FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18E99E37-7D8A-4F3B-9739-2061594A66FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A7925B31-A173-4721-9840-A8711543A897} = {E04B4D5D-C6B2-460F-BBEE-A57F0E36F933}
+		{18E99E37-7D8A-4F3B-9739-2061594A66FC} = {E04B4D5D-C6B2-460F-BBEE-A57F0E36F933}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FD858111-4E6A-4714-A629-10EE4E9B94D5}
