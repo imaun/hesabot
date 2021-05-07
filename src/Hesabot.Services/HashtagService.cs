@@ -6,6 +6,7 @@ using Hesabot.Storage.Core;
 using Hesabot.Services.Models;
 using Hesabot.Services.Extensions;
 using System.Threading.Tasks;
+using Hesabot.Resources;
 
 namespace Hesabot.Services {
 
@@ -34,9 +35,32 @@ namespace Hesabot.Services {
             };
 
             if (model.Title.IsNotNullOrEmpty())
-                return result.Which(isValid: false, withMessage: "");
+                return result.Which(
+                    isValid: false, 
+                    withMessage: ErrorText.Hashtag_Title_Required);
 
+            var existed = await GetAsync(model.UserId, model.Title);
+            if (existed != null)
+                return new ServiceResult<Hashtag> { Result = existed };
 
+            var hashtag = model.ToResult();
+            hashtag.CreateDate = _dateService.UtcNow();
+
+            await _repository.InsertAsync(hashtag);
+
+            return new ServiceResult<Hashtag> { Result = hashtag };
         }
+
+
+        public async Task<Hashtag> GetAsync(long userId, string title) {
+            string query = @"SELECT * FROM [Hashtags] WHERE [UserId] = @0 AND UPPER([Title]) = @1";
+            return await _repository.FirstOrDefaultAsync(query, userId, title.ToUpper());
+        }
+
+        public async Task<bool> ExistAsyn(long userId, string title) {
+            string query = @"SELECT COUNT([Id]) FROM [Hashtags] WHERE [UserId] = @0 AND UPPER([Title]) = @1";
+            return await _repository.AnyAsync(query, userId, title.ToUpper());
+        }
+
     }
 }

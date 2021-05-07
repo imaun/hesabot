@@ -9,7 +9,7 @@ namespace Hesabot.Services.Models
     public class ServiceResult<T> where T: class {
 
         public ServiceResult() {
-            Validation = new ValidationResult();
+            Validation = new ValidationResult { IsValid = true };
         }
 
         public T Result { get; set; }
@@ -21,5 +21,7 @@ namespace Hesabot.Services.Models
             Validation.Message = withMessage;
             return this;
         }
+
+        public void IsValid() => Validation.IsValid = true;
     }
 }

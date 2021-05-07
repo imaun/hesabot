@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Hesabot.Resources;
 using Hesabot.Core.Models;
 using Hesabot.Storage.Core;
 using Hesabot.Core.Services;
@@ -23,8 +24,7 @@ namespace Hesabot.Services {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
         }
 
-
-        public async Task<Account> CreateDefaultAccount(long userId) {
+        public async Task<Account> CreateDefaultAccountAsync(long userId) {
             var account = new Account {
                 Active = true,
                 CreateDate = _dateService.UtcNow(),
@@ -49,7 +49,14 @@ namespace Hesabot.Services {
                 throw new ArgumentOutOfRangeException(nameof(model.UserId));
 
             if (model.Title.IsNotNullOrEmpty())
-                return result.Which(isValid: false, withMessage: "");
+                return result.Which(
+                    isValid: false, 
+                    withMessage: ErrorText.Account_Title_Required);
+
+            if (await ExistAsync(model.UserId, model.Title))
+                return result.Which(
+                    isValid: false,
+                    withMessage: "");
 
             result.Result.CreateDate =
                 result.Result.ModifyDate = _dateService.UtcNow();
@@ -73,11 +80,16 @@ namespace Hesabot.Services {
         }
 
         public async Task<Account> GetAccountByTitleAsync(long userId, string title) {
-            var query = @"SELECT * FROM [Accounts] WHERE [UserId] = @0 AND LOWER([Title]) = @1"; ;
-            return await _repository.FirstOrDefaultAsync(query, userId, title);
+            var query = @"SELECT * FROM [Accounts] WHERE [UserId] = @0 AND UPPER([Title]) = @1"; ;
+            return await _repository.FirstOrDefaultAsync(query, userId, title.ToUpper());
         }
 
-        public async Task<bool> HasAny(long userId) {
+        public async Task<bool> ExistAsync(long userId, string title) {
+            string query = @"SELECT COUNT(Id) FROM [Accounts] WHERE [UserId] = @0 AND UPPER([Title]) = @1";
+            return await _repository.AnyAsync(query, userId, title);
+        }
+
+        public async Task<bool> HasAnyAsync(long userId) {
             string query = @"SELECT COUNT(Id) FROM [Accounts] WHERE [UserId] = @0";
             return await _repository.AnyAsync(query, userId);
         }

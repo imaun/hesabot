@@ -13,12 +13,18 @@ namespace Hesabot.Services.Extensions {
 
         public static Account ToResult(this CreateAccountDto dto)
             => new Account {
-                Title = dto.Title,
+                Title = dto.Title.ApplyCorrectYeKe(),
                 CardNumber = dto.CardNumber,
                 InitBalance = dto.InitBalance,
-                Description = dto.Description,
+                Description = dto.Description.ApplyCorrectYeKe(),
                 UserId = dto.UserId,
                 IsDefault = dto.IsDefault
+            };
+
+        public static Hashtag ToResult(this CreateHashtagDto dto)
+            => new Hashtag {
+                Title = dto.Title.Trim().ApplyCorrectYeKe(),
+                UserId = dto.UserId
             };
     }
 }

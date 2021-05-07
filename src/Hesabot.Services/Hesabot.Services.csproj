@@ -7,6 +7,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Hesabot.Core.Models\Hesabot.Core.Models.csproj" />
     <ProjectReference Include="..\Hesabot.Core\Hesabot.Core.csproj" />
+    <ProjectReference Include="..\Hesabot.Resources\Hesabot.Resources.csproj" />
     <ProjectReference Include="..\Hesabot.Storage\Hesabot.Storage.csproj" />
   </ItemGroup>
 
