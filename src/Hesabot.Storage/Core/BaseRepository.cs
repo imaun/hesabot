@@ -46,6 +46,12 @@ namespace Hesabot.Storage.Core {
         public async Task<IEnumerable<T>> QueryAsync(Expression<Func<T, bool>> predicate)
             => await _db.QueryAsync<T>().Where(predicate).ToList();
 
+        public bool Any(string sql, params object[] args)
+            => _db.ExecuteScalar<int>(sql, args) > 0;
+
+        public async Task<bool> AnyAsync(string sql, params object[] args) 
+            => await _db.ExecuteScalarAsync<int>(sql, args) > 0;
+
         public void Dispose() {
             if (_db.Connection.State == ConnectionState.Open)
                 _db.Connection.Close();

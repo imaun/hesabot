@@ -24,5 +24,8 @@ namespace Hesabot.Storage.Core {
 
         IEnumerable<T> Query(Expression<Func<T, bool>> predicate);
         Task<IEnumerable<T>> QueryAsync(Expression<Func<T, bool>> predicate);
+
+        bool Any(string sql, params object[] args);
+        Task<bool> AnyAsync(string sql, params object[] args);
     }
 }

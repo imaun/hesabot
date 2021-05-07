@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Hesabot.Core.Extensions;
 using Hesabot.Core.Models;
@@ -36,9 +37,18 @@ namespace Hesabot.Services {
             if (model.Title.IsNotNullOrEmpty())
                 return result.Which(isValid: false, withMessage: "");
 
-            result.Result.CreateDate 
+            result.Result.CreateDate =
+                result.Result.ModifyDate = _dateService.UtcNow();
+            result.Result.Active = true;
 
+            await _repository.InsertAsync(result.Result);
 
+            return result;
+        }
+
+        public async Task<bool> HasAny(long userId) {
+            var query = await _repository.QueryAsync(_ => _.UserId == userId);
+            return query.Count() > 0;
         }
     }
 }
