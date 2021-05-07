@@ -28,7 +28,7 @@ namespace Hesabot.Telegram {
             //Start the Bot
             _bot.StartReceiving(new DefaultUpdateHandler(
                     handleUpdateAsync, 
-                    handleErrorAsync), 
+                    handleErrorAsync),
                 _cancelTokenSrc.Token);
         }
 

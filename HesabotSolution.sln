@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hesabot.Services", "src\Hes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hesabot.Telegram", "src\Hesabot.Telegram\Hesabot.Telegram.csproj", "{CF98BA0C-E77F-45AC-AC86-77AFBC79BE8D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hesabot.Core", "src\Hesabot.Core\Hesabot.Core.csproj", "{A62AA137-94E8-4F9A-B5DB-CABF88FE1F91}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{CF98BA0C-E77F-45AC-AC86-77AFBC79BE8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF98BA0C-E77F-45AC-AC86-77AFBC79BE8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF98BA0C-E77F-45AC-AC86-77AFBC79BE8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A62AA137-94E8-4F9A-B5DB-CABF88FE1F91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A62AA137-94E8-4F9A-B5DB-CABF88FE1F91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A62AA137-94E8-4F9A-B5DB-CABF88FE1F91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A62AA137-94E8-4F9A-B5DB-CABF88FE1F91}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,6 +50,7 @@ Global
 		{18E99E37-7D8A-4F3B-9739-2061594A66FC} = {E04B4D5D-C6B2-460F-BBEE-A57F0E36F933}
 		{4254491C-D3AA-4E94-93DE-D7189DEBCF1B} = {E04B4D5D-C6B2-460F-BBEE-A57F0E36F933}
 		{CF98BA0C-E77F-45AC-AC86-77AFBC79BE8D} = {E04B4D5D-C6B2-460F-BBEE-A57F0E36F933}
+		{A62AA137-94E8-4F9A-B5DB-CABF88FE1F91} = {E04B4D5D-C6B2-460F-BBEE-A57F0E36F933}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FD858111-4E6A-4714-A629-10EE4E9B94D5}
