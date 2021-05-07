@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Hesabot.Core.Extensions;
 using Hesabot.Core.Models;
-using Hesabot.Core.Services;
 using Hesabot.Storage.Core;
+using Hesabot.Core.Services;
+using Hesabot.Core.Extensions;
 using Hesabot.Services.Models;
 using Hesabot.Services.Extensions;
 
@@ -19,8 +19,22 @@ namespace Hesabot.Services {
         public AccountService(
             IDateService dateService,
             IBaseRepository<Account, long> repository) {
-            dateService = _dateService ?? throw new ArgumentNullException(nameof(dateService));
+            _dateService = dateService ?? throw new ArgumentNullException(nameof(dateService));
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
+        }
+
+
+        public async Task<Account> CreateDefaultAccount(long userId) {
+            var account = new Account {
+                Active = true,
+                CreateDate = _dateService.UtcNow(),
+                ModifyDate = _dateService.UtcNow(),
+                UserId = userId
+            };
+
+            await _repository.InsertAsync(account);
+
+            return await Task.FromResult(account);
         }
 
         public async Task<ServiceResult<Account>> CreateAsync(CreateAccountDto model) {
@@ -46,9 +60,26 @@ namespace Hesabot.Services {
             return result;
         }
 
-        public async Task<bool> HasAny(long userId) {
+        public async Task<AccountListDto> GetUserAccountsAsync(long userId) {
             var query = await _repository.QueryAsync(_ => _.UserId == userId);
-            return query.Count() > 0;
+            return new AccountListDto {
+                Items = query.Select(_=> new AccountListItemDto {
+                    Balance = _.InitBalance,
+                    CardNumber = _.CardNumber,
+                    Id = _.Id,
+                    Title = _.Title
+                })
+            };
+        }
+
+        public async Task<Account> GetAccountByTitleAsync(long userId, string title) {
+            var query = @"SELECT * FROM [Accounts] WHERE [UserId] = @0 AND LOWER([Title]) = @1"; ;
+            return await _repository.FirstOrDefaultAsync(query, userId, title);
+        }
+
+        public async Task<bool> HasAny(long userId) {
+            string query = @"SELECT COUNT(Id) FROM [Accounts] WHERE [UserId] = @0";
+            return await _repository.AnyAsync(query, userId);
         }
     }
 }

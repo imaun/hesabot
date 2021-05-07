@@ -46,6 +46,12 @@ namespace Hesabot.Storage.Core {
         public async Task<IEnumerable<T>> QueryAsync(Expression<Func<T, bool>> predicate)
             => await _db.QueryAsync<T>().Where(predicate).ToList();
 
+        public T FirstOrDefault(string sql, params object[] args)
+            => _db.FirstOrDefault<T>(sql, args);
+
+        public async Task<T> FirstOrDefaultAsync(string sql, params object[] args)
+            => await _db.FirstOrDefaultAsync<T>(sql, args);
+
         public bool Any(string sql, params object[] args)
             => _db.ExecuteScalar<int>(sql, args) > 0;
 
