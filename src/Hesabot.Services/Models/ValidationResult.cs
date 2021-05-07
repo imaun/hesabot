@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Hesabot.Services.Models {
 
-    public abstract class ValidationResult {
+    public class ValidationResult {
         public bool IsValid { get; set; }
-        public string ModelMessage { get; set; }
+        public string Message { get; set; }
 
     }
 }

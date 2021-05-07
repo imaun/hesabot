@@ -4,4 +4,10 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Hesabot.Core.Models\Hesabot.Core.Models.csproj" />
+    <ProjectReference Include="..\Hesabot.Core\Hesabot.Core.csproj" />
+    <ProjectReference Include="..\Hesabot.Storage\Hesabot.Storage.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,24 +1,44 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Hesabot.Core.Extensions;
 using Hesabot.Core.Models;
+using Hesabot.Core.Services;
 using Hesabot.Storage.Core;
 using Hesabot.Services.Models;
+using Hesabot.Services.Extensions;
 
 namespace Hesabot.Services {
 
-    public class AccountService { 
+    public class AccountService {
 
+
+        private readonly IDateService _dateService;
         private readonly IBaseRepository<Account, long> _repository;
 
-        public AccountService(IBaseRepository<Account, long> repository) {
-            _repository = repository ?? throw new ArgumentNullException(nameof(_repository));
+        public AccountService(
+            IDateService dateService,
+            IBaseRepository<Account, long> repository) {
+            dateService = _dateService ?? throw new ArgumentNullException(nameof(dateService));
+            _repository = repository ?? throw new ArgumentNullException(nameof(repository));
         }
 
         public async Task<ServiceResult<Account>> CreateAsync(CreateAccountDto model) {
             if(model == null)
                 throw new ArgumentNullException(nameof(model));
 
-            if(string.IsNullOrWhiteSpace())
+            var result = new ServiceResult<Account> {
+                Result = model.ToResult()
+            };
+
+            if (model.UserId <= 0)
+                throw new ArgumentOutOfRangeException(nameof(model.UserId));
+
+            if (model.Title.IsNotNullOrEmpty())
+                return result.Which(isValid: false, withMessage: "");
+
+            result.Result.CreateDate 
+
+
         }
     }
 }

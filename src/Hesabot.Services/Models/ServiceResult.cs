@@ -8,8 +8,18 @@ namespace Hesabot.Services.Models
 {
     public class ServiceResult<T> where T: class {
 
+        public ServiceResult() {
+            Validation = new ValidationResult();
+        }
+
         public T Result { get; set; }
 
         public ValidationResult Validation { get; set; }
+
+        public ServiceResult<T> Which(bool isValid, string withMessage = "") {
+            Validation.IsValid = isValid;
+            Validation.Message = withMessage;
+            return this;
+        }
     }
 }
