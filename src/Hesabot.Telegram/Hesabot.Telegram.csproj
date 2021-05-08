@@ -9,4 +9,11 @@
     <PackageReference Include="Telegram.Bot.Extensions.Polling" Version="0.2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Hesabot.Core.Models\Hesabot.Core.Models.csproj" />
+    <ProjectReference Include="..\Hesabot.Core\Hesabot.Core.csproj" />
+    <ProjectReference Include="..\Hesabot.Resources\Hesabot.Resources.csproj" />
+    <ProjectReference Include="..\Hesabot.Services\Hesabot.Services.csproj" />
+  </ItemGroup>
+
 </Project>

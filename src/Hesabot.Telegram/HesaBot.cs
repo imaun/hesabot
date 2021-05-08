@@ -17,7 +17,7 @@ namespace Hesabot.Telegram {
 
         private readonly BotSetting _setting;
         private readonly TelegramBotClient _bot;
-        private readonly User _me;
+        private User _me;
         private CancellationTokenSource _cancelTokenSrc;
 
         public HesaBot(BotSetting setting) {
@@ -25,9 +25,13 @@ namespace Hesabot.Telegram {
             _bot = new TelegramBotClient(_setting.Token);
             _cancelTokenSrc = new CancellationTokenSource();
             
+        }
+
+        public async Task Start() {
+            _me = await _bot.GetMeAsync();
             //Start the Bot
             _bot.StartReceiving(new DefaultUpdateHandler(
-                    handleUpdateAsync, 
+                    handleUpdateAsync,
                     handleErrorAsync),
                 _cancelTokenSrc.Token);
         }
