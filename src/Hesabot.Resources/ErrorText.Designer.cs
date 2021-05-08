@@ -86,5 +86,14 @@ namespace Hesabot.Resources {
                 return ResourceManager.GetString("Hashtag_Title_Required", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 🤖 ⁉ نام طرف وارد کن.
+        /// </summary>
+        public static string Person_Title_Required {
+            get {
+                return ResourceManager.GetString("Person_Title_Required", resourceCulture);
+            }
+        }
     }
 }

@@ -126,4 +126,7 @@
   <data name="Hashtag_Title_Required" xml:space="preserve">
     <value>🤖 ⁉ هشتگ را وارد کنید</value>
   </data>
+  <data name="Person_Title_Required" xml:space="preserve">
+    <value>🤖 ⁉ نام طرف وارد کن</value>
+  </data>
 </root>
