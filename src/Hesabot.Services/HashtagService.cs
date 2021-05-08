@@ -51,7 +51,6 @@ namespace Hesabot.Services {
             return new ServiceResult<Hashtag> { Result = hashtag };
         }
 
-
         public async Task<Hashtag> GetAsync(long userId, string title) {
             string query = @"SELECT * FROM [Hashtags] WHERE [UserId] = @0 AND UPPER([Title]) = @1";
             return await _repository.FirstOrDefaultAsync(query, userId, title.ToUpper());
