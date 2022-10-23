@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 using Hesabot.Storage.Core;
 using Hesabot.Core.Models;
 using Hesabot.Storage.Contracts;
@@ -31,7 +30,8 @@ namespace Hesabot.Storage
             => (await QueryAsync(_ => _.UserId == userId)).ToList();
 
         public async Task<bool> HasAnyAsync(Guid userId) {
-            throw new NotImplementedException();
+            string query = $"SELECT COUNT(Id) FROM {_table} WHERE [UserId] = @0";
+            return await AnyAsync(query, userId);
         }
     }
 }
