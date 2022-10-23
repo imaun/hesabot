@@ -5,8 +5,7 @@ namespace Hesabot.Core.Models {
 
     public enum TransactionType {
         Expense = 0,
-        Income,
-        Transfer
+        Income
     }
 
     [TableName("Transactions")]

@@ -20,5 +20,6 @@ namespace Hesabot.Telegram.Models
         public static string[] ACCOUNT_ADD = new[] { "تعریف حساب", "ثبت حساب" };
         public static string[] HELP = new[] { "راهنما", "کمک" };
         public static string CONTACT = "تماس";
+
     }
 }
