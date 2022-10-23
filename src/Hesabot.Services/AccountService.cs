@@ -8,6 +8,7 @@ using Hesabot.Core.Services;
 using Hesabot.Core.Extensions;
 using Hesabot.Services.Models;
 using Hesabot.Services.Extensions;
+using Hesabot.Core.Exceptions;
 
 namespace Hesabot.Services {
 
@@ -46,7 +47,7 @@ namespace Hesabot.Services {
             };
 
             if (model.UserId <= 0)
-                throw new ArgumentOutOfRangeException(nameof(model.UserId));
+                throw new InvalidUserIdException();
 
             if (model.Title.IsNotNullOrEmpty())
                 return result.Which(

@@ -37,7 +37,31 @@ namespace Hesabot.Services {
             return await _repository.FirstOrDefaultAsync(query, userId, messageId);
         }
 
-        public async Task<Transaction> CreateAsync() {
+        public async Task<ServiceResult<Transaction>> CreateAsync(CreateTransactionDto model) {
+            if (model is null)
+                throw new ArgumentNullException(nameof(model));
+
+            if(model.UserId <= 0)
+                throw new InvalidUserIdException();
+            
+            var result = new ServiceResult<Transaction>
+            {
+                Result = model.ToResult()
+            };
+
+            if (model.Hashtag.IsNullOrEmpty()) {
+                return result.Which(
+                    isValid: false,
+                    withMessage: ErrorText.Hashtag_Title_Required);
+            }
+
+            if(model.Amount == 0) {
+                return result.Which(
+                    isValid: false,
+                    withMessage: ErrorText.Amount_Zero);
+            }
+
+
 
         }
     }

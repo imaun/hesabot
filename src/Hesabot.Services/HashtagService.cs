@@ -56,7 +56,7 @@ namespace Hesabot.Services {
             return await _repository.FirstOrDefaultAsync(query, userId, title.ToUpper());
         }
 
-        public async Task<bool> ExistAsyn(long userId, string title) {
+        public async Task<bool> ExistAsync(long userId, string title) {
             string query = @"SELECT COUNT([Id]) FROM [Hashtags] WHERE [UserId] = @0 AND UPPER([Title]) = @1";
             return await _repository.AnyAsync(query, userId, title.ToUpper());
         }

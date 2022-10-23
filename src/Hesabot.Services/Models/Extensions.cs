@@ -26,5 +26,16 @@ namespace Hesabot.Services.Extensions {
                 Title = dto.Title.Trim().ApplyCorrectYeKe(),
                 UserId = dto.UserId
             };
+
+        public static Transaction ToResult(this CreateTransactionDto dto)
+            => new Transaction
+            {
+                AccountId = dto.AccountId,
+                Amount = dto.Amount,
+                Title = dto.Title,
+                Hashtag = dto.Hashtag,
+                MessageId = dto.MessageId,
+                TransactionType = dto.TransactionType
+            };
     }
 }

@@ -123,6 +123,12 @@
   <data name="Account_Title_Required" xml:space="preserve">
     <value>🤖⁉عنوان حساب وارد کنید.</value>
   </data>
+  <data name="Amount_Required" xml:space="preserve">
+    <value>🤖 لطفاً مبلغ تراکنش را مشخص کنید </value>
+  </data>
+  <data name="Amount_Zero" xml:space="preserve">
+    <value>🤖 تراکنش صفر تاثیر خاصی نداره!!!</value>
+  </data>
   <data name="Hashtag_Title_Required" xml:space="preserve">
     <value>🤖 ⁉ هشتگ را وارد کنید</value>
   </data>

@@ -19,7 +19,7 @@ namespace Hesabot.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class ErrorText {
@@ -75,6 +75,24 @@ namespace Hesabot.Resources {
         public static string Account_Title_Required {
             get {
                 return ResourceManager.GetString("Account_Title_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 🤖 لطفاً مبلغ تراکنش را مشخص کنید .
+        /// </summary>
+        public static string Amount_Required {
+            get {
+                return ResourceManager.GetString("Amount_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 🤖 تراکنش صفر تاثیر خاصی نداره!!!.
+        /// </summary>
+        public static string Amount_Zero {
+            get {
+                return ResourceManager.GetString("Amount_Zero", resourceCulture);
             }
         }
         
