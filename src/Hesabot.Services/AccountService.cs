@@ -81,7 +81,7 @@ namespace Hesabot.Services {
         }
 
         public async Task<Account> GetAccountByTitleAsync(long userId, string title) {
-            var query = @"SELECT * FROM [Accounts] WHERE [UserId] = @0 AND UPPER([Title]) = @1"; ;
+            var query = @"SELECT * FROM [Accounts] WHERE [UserId] = @0 AND UPPER([Title]) = @1";
             return await _repository.FirstOrDefaultAsync(query, userId, title.ToUpper());
         }
 
