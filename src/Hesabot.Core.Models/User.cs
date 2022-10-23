@@ -11,7 +11,7 @@ namespace Hesabot.Core.Models {
 
         public long Id { get; set; }
 
-        public string Username { get; set; }
+        public string UserName { get; set; }
 
         public string Password { get; set; }
 
@@ -22,6 +22,8 @@ namespace Hesabot.Core.Models {
         public DateTime? WebRegisterDate { get; set; }
 
         public string TelegramId { get; set; }
+
+        public string TelegramUserName { get; set; }
 
         public string FirstName { get; set; }
 

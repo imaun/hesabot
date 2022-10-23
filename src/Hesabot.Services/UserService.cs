@@ -41,7 +41,7 @@ namespace Hesabot.Services {
                 FirstName = model.FirstName,
                 LastName = model.LastName,
                 TelegramId = model.TelegramId,
-                Username = model.Username
+                UserName = model.Username
             };
 
             await _repository.InsertAsync(user);
