@@ -8,7 +8,7 @@ using Hesabot.Core.Models;
 
 namespace Hesabot.Storage.Contracts
 {
-    public interface IUserRepository
+    public interface IUserRepository : IBaseRepository<User, Guid>
     {
 
         Task<User> FindByTelegramUserNameAsync(string telegramUserName);

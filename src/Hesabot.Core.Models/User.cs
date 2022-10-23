@@ -9,7 +9,7 @@ namespace Hesabot.Core.Models {
 
         public User() { }
 
-        public long Id { get; set; }
+        public Guid Id { get; set; }
 
         public string UserName { get; set; }
 
