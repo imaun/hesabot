@@ -43,7 +43,7 @@ namespace Hesabot.Services {
             if (existed != null)
                 return new ServiceResult<Hashtag> { Result = existed };
 
-            var hashtag = model.ToResult();
+            var hashtag = model.Map();
             hashtag.CreateDate = _dateService.UtcNow();
 
             await _repository.InsertAsync(hashtag);

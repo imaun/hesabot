@@ -11,7 +11,7 @@ namespace Hesabot.Services.Extensions {
 
     public static class Extensions {
 
-        public static Account ToResult(this CreateAccountDto dto)
+        public static Account Map(this CreateAccountDto dto)
             => new Account {
                 Title = dto.Title.ApplyCorrectYeKe(),
                 CardNumber = dto.CardNumber,
@@ -21,13 +21,13 @@ namespace Hesabot.Services.Extensions {
                 IsDefault = dto.IsDefault
             };
 
-        public static Hashtag ToResult(this CreateHashtagDto dto)
+        public static Hashtag Map(this CreateHashtagDto dto)
             => new Hashtag {
                 Title = dto.Title.Trim().ApplyCorrectYeKe(),
                 UserId = dto.UserId
             };
 
-        public static Transaction ToResult(this CreateTransactionDto dto)
+        public static Transaction Map(this CreateTransactionDto dto)
             => new Transaction
             {
                 AccountId = dto.AccountId,

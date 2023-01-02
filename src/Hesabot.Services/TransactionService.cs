@@ -46,7 +46,7 @@ namespace Hesabot.Services {
             
             var result = new ServiceResult<Transaction>
             {
-                Result = model.ToResult()
+                Result = model.Map()
             };
 
             if (model.Hashtag.IsNullOrEmpty()) {

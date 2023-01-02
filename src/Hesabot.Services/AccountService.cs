@@ -43,7 +43,7 @@ namespace Hesabot.Services {
                 throw new ArgumentNullException(nameof(model));
 
             var result = new ServiceResult<Account> {
-                Result = model.ToResult()
+                Result = model.Map()
             };
 
             if (model.UserId <= 0)
