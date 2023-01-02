@@ -87,7 +87,7 @@ namespace Hesabot.Telegram.Models {
 
         public string LastName { get; set; }
 
-        public int TelegramId { get; set; }
+        public long TelegramId { get; set; }
 
         public int MessageId { get; set; }
 

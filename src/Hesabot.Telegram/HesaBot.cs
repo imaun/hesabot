@@ -5,7 +5,6 @@ using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Exceptions;
 using Telegram.Bot.Types.Enums;
-using Telegram.Bot.Types.InputFiles;
 using Telegram.Bot.Types.ReplyMarkups;
 using Telegram.Bot.Extensions.Polling;
 using Telegram.Bot.Types.InlineQueryResults;

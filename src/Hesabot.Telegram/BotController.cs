@@ -27,7 +27,7 @@ namespace Hesabot.Telegram {
                 return result;
             }
 
-
+            return new BotCommand();
         }
 
 
